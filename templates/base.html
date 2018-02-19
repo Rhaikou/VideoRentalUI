@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="fi">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<meta name="author" content="Riku Rundelin" />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css')}}" />
+    <title>{% block title %}Testi{% endblock title %}</title>
+</head>
+
+<body>
+<div id="wrapper">
+	{% block topnav %}
+	<div id="topnav"><header><nav>
+	<a href="http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/">Etusivu</a>
+	<a href="http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/vuokraus/">Uusi vuokraus</a>
+	<a href="http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/jasenet/">Jäsenet</a>
+	<a href="http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/elokuvat/">Elokuvat</a>
+	<a href="http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/ulos/">Kirjaudu ulos</a>
+	</nav></header></div>
+	{% endblock topnav %}
+	<br>
+	<br>
+	<br>
+	<br>
+    {% block content %}
+	<h1>testi</h1>
+    {% endblock content%}
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+	<br>
+    <footer>
+	    <p>Riku Rundelin 2017 TIEA218</p>
+    </footer>
+</div>
+</body>
+</html>

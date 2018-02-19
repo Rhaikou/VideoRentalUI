@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Kirjaudu{% endblock title %}
+
+{% block topnav %} {% endblock topnav %}
+
+{% block content %}
+<h1>Kirjaudu sisään</h1>
+<form action="{{request.base_url}}" method="post">
+	<fieldset>
+		<label>Käyttäjätunnus: <br><input type="text" name="user" placeholder="Käyttäjätunnus"/><span class="err-field">{{err['user']}}</span><br></label>
+		<label>Salasana: <br><input type="password" name="pass" placeholder="Salasana"/><span class="err-field">{{err['pass']}}</span><br></label>
+	<input type="submit" value="Kirjaudu" name="submited"/>
+	</fieldset>
+</form>
+{% endblock content %}
+

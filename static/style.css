@@ -1,0 +1,121 @@
+#wrapper {
+	width: 600px;
+	margin: 0 auto;
+	background-color: #E0DBCD;
+}
+
+#topnav {
+	position: fixed;
+	top: 0%;
+	width: 600px;
+	overflow: auto;
+	margin: 0 auto;
+	background-color: #ff9933;
+	border: ridge;
+}
+
+#topnav a{
+	display: block;
+	background-color: #ff9933;
+	color: black;
+	padding: 10px 10px;
+	margin: 0;
+	float: left;
+	border-style: ridge;
+	border-color: black;
+}	
+
+#input p {
+	float: left;
+}
+
+.err-field {
+	background-color: red;
+}
+
+#movielist {
+	margin-bottom: 10%;
+	}
+
+h1 {
+	clear: both;
+	margin-left: 2%;
+}
+
+body {
+	color: black;
+	background-color: #E0DBCD;
+}
+
+a {
+	color: black;
+}
+
+td {
+	background-color: #ffffff;
+	border: black;
+	border-style: solid;
+}
+
+th {
+	background-color: #ff9933;
+	border-color: black;
+	border-style: solid;
+}
+
+th a {
+	color: black;
+}
+
+li {
+	display: block;
+	background-color: #ff9933;
+	border-style: ridge;
+	padding: 4px 4px;
+}
+
+li ul li {
+	display: block;
+	background-color: #ffffff;
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+	padding: 4px 4px;
+	margin-bottom: 1px;
+}
+
+footer {
+	position: fixed;
+	bottom: 0%;
+	display: block;
+	background-color: #ffffff;
+	width: 600px;
+	border-style: ridge;
+}
+
+footer p {
+	text-align: center;
+}
+
+fieldset {
+	background-color: #ff9933;
+	border-style: ridge;
+	border-color: black;
+}
+
+legend {
+	font-weight: bold;
+	background-color: #ffffff;
+	border-style: ridge;
+	border-color: black;
+}
+
+input, select {
+	background-color: #ffffff;
+	color: black;
+	border-color: black;
+	margin: 2px 2px;
+	width: 30%;
+}
+
+

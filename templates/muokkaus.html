@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Uusi vuokraus{% endblock title%}
+
+{% block content %}
+<h1>Muokkaa vuokrauksen tietoja</h1>
+{% if errors %}
+<p>Annetuissa tiedoissa oli virhe, täytä lomake uudelleen.</p>
+{%- endif %}
+<form action="{{request.base_url}}" method="post">
+<fieldset>
+	<legend>Vuokrauksen tiedot</legend>
+	<label>Vuokraaja: <br><select name="member">
+	{% for m in members %}
+		<option value="{{m['id']}}" {{'selected' if m['id']==rental['member_id']|int}} >
+		{{m['name']}}</option>
+	{% endfor %}
+	</select></label><br>
+	<label>Elokuva: <br><select name="movie">
+	{% for m in movies %}
+		<option value="{{m['id']}}" {{'selected' if m['id']==rental['movie_id']|int}}>{{m['name']}} ({{m['year']}})</option>
+	{% endfor %}
+	</select></label><br>
+	<label>Vuokraus PVM: <br><input type="text" name="rental_date" placeholder="Vuokraus PVM" value="{{rental['rental_date']}}"/><span class="err-field">{{err_messages['rental_date']}}</span></label><br>
+	<label>Palautus PVM: <br><input type="text" name="return_date" placeholder="Palautus PVM" value="{{rental['return_date']}}"/><span class="err-field">{{err_messages['return_date']}}</span></label><br>
+	<label>Maksettu: <br><input type="text" name="paid" placeholder="Maksu" value="{{rental['paid']}}"/><span class="err-field">{{err_messages['paid']}}</span></label><br>
+	<input type="submit" name="save" value="Tallenna"/>
+	<input type="submit" name="delete" value="Poista"/>
+	<br>
+	<span class="err-field">{{err_messages['general']}}</span>
+	
+	<input type="hidden" name="memid" value="{{rental['member_id']}}"/>
+	<input type="hidden" name="movid" value="{{rental['movie_id']}}"/>
+	<input type="hidden" name="rend" value="{{rental['rental_date']}}"/>
+	<input type="hidden" name="retd" value="{{rental['return_date']}}"/>
+	<input type="hidden" name="pd" value="{{rental['paid']}}"/>
+</fieldset>
+</form>
+{% endblock content %}

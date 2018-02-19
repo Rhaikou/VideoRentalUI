@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}Etusivu{% endblock title%}
+
+{% block content %}
+	<h1>Vuokraukset</h1>
+	<ul id="movielist">
+	{% for movie in movies %}
+	<li>
+	{{movie['name']}} ({{movie['year']}}) vuokrauksia: {{movie['rentals']|length}}
+	<ul>
+	{% for rental in movie['rentals'] %}
+	<li><a href="{{ 'http://users.jyu.fi/~riherund/cgi-bin/VT4/flask.cgi/muokkaa/?memid=%(memid)s&movid=%(movid)s&rend=%(rend)s&retd=%(retd)s&pd=%(paid)s' | format(memid=rental['member_id'], movid=rental['movie_id'], rend=rental['rental_date'], retd=rental['return_date'], paid=rental['paid']) }}">{{rental['member_name']}}, {{rental['rental_date']}}, {{rental['return_date']}}, {{rental['paid']}}€</a></li>
+	{% endfor %}
+	</ul>
+	</li>
+	{% endfor %}
+	</ul>
+{% endblock content %}

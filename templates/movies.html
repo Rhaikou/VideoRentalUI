@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}Hallitse elokuvia{% endblock title %}
+
+{% block content %}
+<h1>Hallitse elokuvia</h1>
+<form action="{{request.base_url}}" method="post">
+<fieldset>
+	<label>Elokuva: <select name="movie">
+	{% for m in movies %}
+	<option value="{{m['id']}}">{{m['name']}} ({{m['year']}})</option>
+	{% endfor %}
+	</select><span class="err-field">{{err}}</span></label><br>
+<input type="submit" value="Poista"/>
+</fieldset>
+</form>
+{% endblock content %}

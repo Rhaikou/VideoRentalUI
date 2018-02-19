@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block title %}Jäsenet{% endblock title%}
+{% block content %}
+<h1>Jäsenet</h1>
+<table>
+<thead>
+		<tr>
+			<th><a href="?orderby=name">Nimi</a></th>
+			<th><a href="?orderby=address">Osoite</a></th>
+			<th><a href="?orderby=joined">Liittynyt</a></th>
+			<th><a href="?orderby=born">Syntymäaika</a></th>
+			<th>Vuokrauksia</th>
+		</tr>
+</thead>
+<tbody>
+		{% for m in members %}
+		<tr>
+			<td>{{m['name']}}</td>
+			<td>{{m['address']}}</td>
+			<td>{{m['joined']}}</td>
+			<td>{{m['born']}}</td>
+			<td>{{m['rentals']|length}}</td>
+		</tr>
+		{% endfor %}
+</tbody>
+</table>
+{% endblock content %}
+

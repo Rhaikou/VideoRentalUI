@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Uusi vuokraus{% endblock title%}
+
+{% block content %}
+<h1>Uusi vuokraus</h1>
+{% if err == True %}
+<p>Annetuissa tiedoissa oli virhe, täytä lomake uudelleen.</p>
+{%- endif %}
+<form action="{{request.base_url}}" method="post">
+<fieldset>
+	<legend>Vuokrauksen tiedot</legend>
+	<div id="inputs">
+	<label>Vuokraaja: <br><select name="member">
+	{% for m in members %}
+		<option value="{{m['id']}}">{{m['name']}}</option>
+	{% endfor %}
+	</select></label><br>
+	<label>Elokuva: <br><select name="movie">
+	{% for m in movies %}
+		<option value="{{m['id']}}">{{m['name']}} ({{m['year']}})</option>
+	{% endfor %}
+	</select></label><br>
+	<label>Vuokraus PVM: <br><input type="text" name="rental_date" placeholder="Vuokraus PVM"/><span class="err-field">{{err_messages['rental_date']}}</span></label><br>
+	<label>Palautus PVM: <br><input type="text" name="return_date" placeholder="Palautus PVM"/><span class="err-field">{{err_messages['return_date']}}</span></label><br>
+	<label>Maksettu: <br><input type="text" name="paid" placeholder="Maksu"/><span class="err-field">{{err_messages['paid']}}</span></label><br>
+	<input type="submit" name="send" value="Tallenna"/><br>
+	<span class="err-field">{{err_messages['general']}}</span>
+	</div>
+</fieldset>
+</form>
+{% endblock content %}
